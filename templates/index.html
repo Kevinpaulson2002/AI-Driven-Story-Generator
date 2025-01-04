@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Story Teller</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="main-container">
+        {% if not story %}
+        
+        <div class="form-container">
+            <h1>AI Story Generator</h1>
+            <form action="/" method="POST" class="input-form">
+                <label for="keywords">Enter Keywords:</label>
+                <input type="text" id="keywords" name="keywords" placeholder="e.g., magic, dragon, hero" required>
+
+                <label for="description">Story Theme:</label>
+                <input type="text" id="description" name="description" placeholder="e.g., A magical adventure in a fantasy world" required>
+
+                <button type="submit">Generate Story</button>
+            </form>
+        </div>
+        {% else %}
+        
+        <div class="content-container">
+            <div class="image-box">
+                <div class="background-image" style="background-image: url('{{ image_url }}');"></div>
+            </div>
+            <div class="story-box">
+                <h2>{{ story_title }}</h2>
+                <p>{{ story }}</p>
+            </div>
+        </div>
+        <a href="/" class="back-button">Generate Another Story</a>
+        {% endif %}
+    </div>
+
+    <script src="{{ url_for('static', filename='static/script.js') }}"></script>
+</body>
+</html>
