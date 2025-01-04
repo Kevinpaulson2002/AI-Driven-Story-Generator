@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 import base64
 from io import BytesIO
-#Make you won .env file and store your API KEYS there
+#Make you own .env file and store your API KEYS there
 load_dotenv()
 
 app = Flask(__name__)
